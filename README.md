@@ -1,5 +1,5 @@
 	* Provide a service to create a parent with zero or more children using an endpoint of http://localhost:8080/api/parents
-	* Provide a service to retrieve a parent including their children using an endpoint of http://localhost:8080/apiparents/{id}
+	* Provide a service to retrieve a parent including their children using an endpoint of http://localhost:8080/api/parents/{id}
 	* Use an embedded database such as H2 via JPA as a backing store
 	* Provide a service to update a parent using an endpoint of http://localhost:8080/api/parents
 	* Provide a service to update a child http://localhost:8080/api/children
@@ -13,6 +13,11 @@
 
 Obs.: Ids will be included automatically.
 They only will be used if it already exists. In that case it will be updated instead of saved.
+At the first time those ids will be discarted. 
+To get the available ids you should POST some payload e use GET to recover it.
+It makes ids more standard.
+
+/api/ was included to use swagger properly.
   
 Json Sample:
 
