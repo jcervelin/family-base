@@ -1,6 +1,6 @@
 	* Provide a service to create a parent with zero or more children using an endpoint of http://localhost:8080/api/parents
 	* Provide a service to retrieve a parent including their children using an endpoint of http://localhost:8080/api/parents/{id}
-	* Use an embedded database such as H2 via JPA as a backing store
+	* Using MongoDB embedded as a backing store
 	* Provide a service to update a parent using an endpoint of http://localhost:8080/api/parents
 	* Provide a service to update a child http://localhost:8080/api/children
   
@@ -8,13 +8,15 @@
   Using swagger:
   **`http://localhost:8080`**
   
-  Connecting mongo:
+  Connecting mongo in your client (not necessary):
   **`mongodb://localhost:27017/dbFamily`**
 
 
-Obs.: Do not put Ids in parent nor child. The API do it for you
+Obs.: Do not put made up Ids in parent nor child. The API do it for you.
 They only will be used if it already exists. In that case it will be updated instead of saved.
 To see the ids you may save some parent e use GET to recover it.
+Only parents can be saved. 
+Children can't. They only can be updated, because here we are using NoSQL (non relational database). It's only one document.
 
 /api/ was included to use swagger properly.
   
@@ -49,7 +51,7 @@ Json Sample how should be saved:
   ]
 }
 ```
-Using GET:
+After saving a Parent you will see using GET:
 
 ```Javascript
 [
