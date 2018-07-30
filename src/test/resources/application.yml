@@ -1,9 +1,0 @@
-spring:
-  application:
-    name: family-base
-  # Datasource
-  datasource:
-    url: jdbc:h2:file:~/test
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver

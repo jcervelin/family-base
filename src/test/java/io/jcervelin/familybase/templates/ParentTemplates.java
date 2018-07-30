@@ -19,7 +19,7 @@ public class ParentTemplates implements TemplateLoader {
     @Override
     public void load() {
         Fixture.of(Parent.class).addTemplate(VALID_PARENT, new Rule() {{
-            add("id", 1L);
+            add("id", "5b5e30a04caf45731516eb66");
             add("title", "Mr.");
             add("firstName", "Antonius");
             add("lastName", "Cervelin");
@@ -36,7 +36,7 @@ public class ParentTemplates implements TemplateLoader {
         }});
 
         Fixture.of(Parent.class).addTemplate(PARENT_WITHOUT_DATE_OF_BIRTH).inherits(VALID_PARENT, new Rule() {{
-            add("id", 50L);
+            add("id", "5b5e30a04caf45731516eb67");
             add("dateOfBirth", null);
         }});
     }

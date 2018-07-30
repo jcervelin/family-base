@@ -17,7 +17,7 @@ public class ChildTemplates implements TemplateLoader {
     @Override
     public void load() {
         Fixture.of(Child.class).addTemplate(VALID_CHILD, new Rule() {{
-            add("id", 1L);
+            add("id", "5b5e30a04caf45731516eb76");
             add("firstName", "Juliano");
             add("lastName", "Cervelin");
             add("dateOfBirth", LocalDate.of(1980, 9, 12));
@@ -27,7 +27,7 @@ public class ChildTemplates implements TemplateLoader {
         }});
 
         Fixture.of(Child.class).addTemplate(MID_CHILD, new Rule() {{
-            add("id", 2L);
+            add("id", "5b5e30a04caf45731516eb77");
             add("firstName", "Daniel");
             add("lastName", "Cervelin");
             add("dateOfBirth", LocalDate.of(1985, 2, 5));
@@ -37,7 +37,7 @@ public class ChildTemplates implements TemplateLoader {
         }});
 
         Fixture.of(Child.class).addTemplate(YOUNG_CHILD, new Rule() {{
-            add("id", 3L);
+            add("id", "5b5e30a04caf45731516eb78");
             add("firstName", "Carol");
             add("lastName", "Cervelin");
             add("dateOfBirth", LocalDate.of(1992, 1, 30));
@@ -51,7 +51,7 @@ public class ChildTemplates implements TemplateLoader {
         }});
 
         Fixture.of(Child.class).addTemplate(CHILD_WITHOUT_DATE_OF_BIRTH).inherits(VALID_CHILD, new Rule() {{
-            add("id", 50L);
+            add("id", "5b5e30a04caf45731516eb79");
             add("dateOfBirth", null);
         }});
 

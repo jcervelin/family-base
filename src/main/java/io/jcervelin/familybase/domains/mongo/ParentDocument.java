@@ -1,7 +1,10 @@
-package io.jcervelin.familybase.domains;
+package io.jcervelin.familybase.domains.mongo;
 
 import lombok.*;
+import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.Id;
 import java.time.LocalDate;
 import java.util.Collection;
 
@@ -14,8 +17,10 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Parent {
-    private String id;
+@Document(collection = "Parents")
+public class ParentDocument {
+    @Id
+    private ObjectId id;
     private String title;
     private String firstName;
     private String lastName;
@@ -23,5 +28,5 @@ public class Parent {
     private LocalDate dateOfBirth;
     private String gender;
     private String secondName;
-    private Collection<Child> children;
+    private Collection<ChildDocument> children;
 }

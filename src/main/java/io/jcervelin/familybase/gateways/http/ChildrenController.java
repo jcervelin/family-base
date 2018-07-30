@@ -6,7 +6,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +25,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequiredArgsConstructor
 @Slf4j
 public class ChildrenController {
-    @Autowired
+
     private final ManageChildrenUseCase useCase;
 
     @GetMapping(produces = APPLICATION_JSON_VALUE)
@@ -38,18 +37,19 @@ public class ChildrenController {
 
     @GetMapping(value = "{id}", produces = APPLICATION_JSON_VALUE)
     @ApiOperation("Find child by id")
-    public ResponseEntity<Child> findById(@PathVariable final String id) {
-        final Child child = useCase.findById(Long.valueOf(id));
+    public ResponseEntity<Child> findById(
+            @PathVariable final String id) {
+        final Child child = useCase.findById(id);
         log.info("Found child: {}", child);
         return new ResponseEntity<>(child, HttpStatus.OK);
     }
 
-    @PostMapping(produces = APPLICATION_JSON_VALUE)
-    @ApiOperation("Save or update child")
+    @PutMapping(produces = APPLICATION_JSON_VALUE)
+    @ApiOperation("Update child")
     @ResponseStatus(value = HttpStatus.CREATED)
-    public void saveOrUpdate(@RequestBody final Child child) {
-        log.info("Starting to save child: {}", child);
-        useCase.save(child);
+    public void update(@RequestBody final Child child) {
+        log.info("Starting to update child: {}", child);
+        useCase.updateChild(child);
     }
 
 }

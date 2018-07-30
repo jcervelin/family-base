@@ -31,16 +31,15 @@ public class ParentsController {
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     @ApiOperation("Find all parents")
     public ResponseEntity<Collection<Parent>> findAll() {
-
         final Collection<Parent> parents = useCase.findAll();
-
+        log.info("Found parent: {}", parents);
         return new ResponseEntity<>(parents, HttpStatus.OK);
     }
 
     @GetMapping(value = "{id}", produces = APPLICATION_JSON_VALUE)
     @ApiOperation("Find parent by id")
-    public ResponseEntity<Parent> findAll(@PathVariable final Integer id) {
-        final Parent parent = useCase.findById(Long.valueOf(id));
+    public ResponseEntity<Parent> findAll(@PathVariable final String id) {
+        final Parent parent = useCase.findById(id);
         log.info("Found parent: {}", parent);
         return new ResponseEntity<>(parent, HttpStatus.OK);
     }
@@ -53,4 +52,11 @@ public class ParentsController {
         useCase.save(parent);
     }
 
+    @PutMapping(produces = APPLICATION_JSON_VALUE)
+    @ApiOperation("Update parent")
+    @ResponseStatus(value = HttpStatus.OK)
+    public void update(@RequestBody final Parent parent) {
+        log.info("Starting to save parent: {}", parent);
+        useCase.save(parent);
+    }
 }

@@ -1,14 +1,10 @@
 spring:
   application:
     name: family-base
-  # H2
-  h2:
-    console:
-      enabled: true
-      path: /h2
-  # Datasource
-  datasource:
-    url: jdbc:h2:file:~/test
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
+  # Mongo
+  data:
+    mongodb:
+      database: dbFamily
+      port: 27017
+      host: localhost
+
