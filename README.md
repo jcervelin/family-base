@@ -1,4 +1,9 @@
-	* Provide a service to create a parent with zero or more children using an endpoint of http://localhost:8080/api/parents
+Please, see also this project coded using MongoDB here:
+https://github.com/jcervelin/family-base/tree/feature/migrate-from-h2-to-mongo
+
+branch: feature/migrate-from-h2-to-mongo
+
+       * Provide a service to create a parent with zero or more children using an endpoint of http://localhost:8080/api/parents
 	* Provide a service to retrieve a parent including their children using an endpoint of http://localhost:8080/api/parents/{id}
 	* Use an embedded database such as H2 via JPA as a backing store
 	* Provide a service to update a parent using an endpoint of http://localhost:8080/api/parents
